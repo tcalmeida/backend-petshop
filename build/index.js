@@ -7,9 +7,8 @@ const express_1 = __importDefault(require("express"));
 const database_1 = require("./database");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-const port = 3000;
-app.listen(port, () => {
-    console.log("Server running on port: 3000");
+app.listen(process.env.PORT, () => {
+    console.log("Server started");
     database_1.mySqlConection.hasConection();
 });
 exports.default = app;

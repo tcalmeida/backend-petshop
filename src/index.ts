@@ -5,11 +5,9 @@ const app = express();
 
 app.use(express.json());
 
-const port = 3000;
-
-app.listen(port, () => {
-  console.log("Server running on port: 3000");
-  mySqlConection.hasConection()
+app.listen(process.env.PORT, () => {
+  console.log("Server started");
+  mySqlConection.hasConection();
 });
 
 export default app;

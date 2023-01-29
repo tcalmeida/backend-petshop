@@ -18,10 +18,10 @@ class Connection {
             this.db_pass = dbPass;
             this.db_config = dbConfig;
             this.instance = new sequelize_1.Sequelize(dbName, dbUser, dbPass, dbConfig); // constructor que cria uma nova conexao com o BD
-            console.log(`Database: ${this.db_name} connected`);
+            //console.log(`Database: ${this.db_name} connected`);
         }
         catch (err) {
-            console.error("Database connection error");
+            //console.error("Database connection error");
             throw err;
         }
     }
