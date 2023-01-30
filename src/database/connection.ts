@@ -19,10 +19,10 @@ export default class Connection {
       this.db_pass = dbPass;
       this.db_config = dbConfig;
 
-      this.instance = new Sequelize(dbName, dbUser, dbPass, dbConfig); // constructor que cria uma nova conexao com o BD
-      //console.log(`Database: ${this.db_name} connected`);
+      this.instance = new Sequelize(dbName, dbUser, dbPass, dbConfig);
+      // console.log(`Database: ${this.db_name} connected`);
     } catch (err) {
-      //console.error("Database connection error");
+      // console.error("Database connection error");
       throw err;
     }
   }
@@ -34,7 +34,7 @@ export default class Connection {
       await this.instance.authenticate();
       console.log(`Database: ${this.db_name} connected`);
     } catch (error) {
-      console.error("Database connection error");
+      console.error('Can\'t establish database connection:\n' + error);
     }
   }
 }

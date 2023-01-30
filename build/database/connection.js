@@ -17,11 +17,11 @@ class Connection {
             this.db_user = dbUser;
             this.db_pass = dbPass;
             this.db_config = dbConfig;
-            this.instance = new sequelize_1.Sequelize(dbName, dbUser, dbPass, dbConfig); // constructor que cria uma nova conexao com o BD
-            //console.log(`Database: ${this.db_name} connected`);
+            this.instance = new sequelize_1.Sequelize(dbName, dbUser, dbPass, dbConfig);
+            // console.log(`Database: ${this.db_name} connected`);
         }
         catch (err) {
-            //console.error("Database connection error");
+            // console.error("Database connection error");
             throw err;
         }
     }
@@ -35,7 +35,7 @@ class Connection {
                 console.log(`Database: ${this.db_name} connected`);
             }
             catch (error) {
-                console.error("Database connection error");
+                console.error('Can\'t establish database connection:\n' + error);
             }
         });
     }
