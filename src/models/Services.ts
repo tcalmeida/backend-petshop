@@ -6,20 +6,21 @@ const dbConnection = mySqlConection.getInstance();
 const Service = dbConnection.define(
   "Service",
   {
-    id: {
+    ServiceID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
-    name: {
+    Name: {
       type: DataTypes.STRING,
     },
-    price: {
-      type: DataTypes.INTEGER,
+    Price: {
+      type: DataTypes.FLOAT,
     },
   },
   {
-    tableName: "services",
+    tableName: "Service",
     timestamps: false,
   }
 );

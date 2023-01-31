@@ -4,34 +4,38 @@ import { mySqlConection } from "../database";
 const dbConnection = mySqlConection.getInstance();
 
 const User = dbConnection.define(
-  "Users",
+  "User",
   {
-    id: {
+    UserID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
+      allowNull: false,
     },
-    name: {
+    Name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    Email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    Password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    Telephone: {
       type: DataTypes.STRING,
     },
-    email: {
-      type: DataTypes.STRING,
-    },
-    password: {
-      type: DataTypes.STRING,
-    },
-    telephone: {
-      type: DataTypes.STRING,
-    },
-    createdAt: {
+    CreatedAt: {
       type: DataTypes.DATE,
     },
-    updatedAt: {
+    UpdatedAt: {
       type: DataTypes.DATE,
     },
   },
   {
-    tableName: "users",
+    tableName: "User",
   }
 );
 

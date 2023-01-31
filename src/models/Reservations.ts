@@ -9,41 +9,42 @@ const dbConnection = mySqlConection.getInstance();
 const Reservation = dbConnection.define(
     "Reservation",
     {
-      id: {
+      ReservationID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
+        allowNull: false,
       },
-      user_id: {
+      User_UserID: {
         type: DataTypes.INTEGER,
         references: {
           model: User,
-          key: "id",
+          key: "UserID",
         },
       },
-      worker_id: {
+      Worker_WorkerID: {
         type: DataTypes.INTEGER,
         references: {
           model: Worker,
-          key: "id",
+          key: "WorkerID",
         },
       },
-      service_id: {
+      Service_ServiceID: {
         type: DataTypes.INTEGER,
         references: {
           model: Service,
-          key: "id",
+          key: "ServiceID",
         },
       },
-      createdAt: {
+      CreatedAt: {
         type: DataTypes.DATE,
       },
-      updatedAt: {
+      UpdatedAt: {
         type: DataTypes.DATE,
       },
     },
     {
-      tableName: "reservations",
+      tableName: "Reservation",
     }
   );
   
