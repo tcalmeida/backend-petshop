@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Reservation = exports.Service = exports.Worker = exports.User = void 0;
+const Users_1 = __importDefault(require("./Users"));
+exports.User = Users_1.default;
+const Workers_1 = __importDefault(require("./Workers"));
+exports.Worker = Workers_1.default;
+const Services_1 = __importDefault(require("./Services"));
+exports.Service = Services_1.default;
+const Reservations_1 = __importDefault(require("./Reservations"));
+exports.Reservation = Reservations_1.default;
+Users_1.default.hasMany(Reservations_1.default, { foreignKey: "UserID" });
+Reservations_1.default.belongsTo(Users_1.default, { foreignKey: "UserID" });
+Workers_1.default.hasMany(Reservations_1.default, { foreignKey: "WorkerID" });
+Reservations_1.default.belongsTo(Workers_1.default, { foreignKey: "WorkerID" });
+Services_1.default.hasMany(Reservations_1.default, { foreignKey: "ServiceID" });
+Reservations_1.default.belongsTo(Services_1.default, { foreignKey: "ServiceID" });
