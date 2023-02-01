@@ -9,33 +9,36 @@ const Users_1 = __importDefault(require("./Users"));
 const Workers_1 = __importDefault(require("./Workers"));
 const Services_1 = __importDefault(require("./Services"));
 const dbConnection = database_1.mySqlConection.getInstance();
-const Reservation = dbConnection.define("Reservation", {
+const Reservations = dbConnection.define("Reservation", {
     ReservationID: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
     },
-    User_UserID: {
+    IDUser: {
         type: sequelize_1.DataTypes.INTEGER,
         references: {
             model: Users_1.default,
             key: "UserID",
         },
+        allowNull: false,
     },
-    Worker_WorkerID: {
+    IDWorker: {
         type: sequelize_1.DataTypes.INTEGER,
         references: {
             model: Workers_1.default,
             key: "WorkerID",
         },
+        allowNull: false,
     },
-    Service_ServiceID: {
+    IDService: {
         type: sequelize_1.DataTypes.INTEGER,
         references: {
             model: Services_1.default,
             key: "ServiceID",
         },
+        allowNull: false,
     },
     CreatedAt: {
         type: sequelize_1.DataTypes.DATE,
@@ -46,4 +49,4 @@ const Reservation = dbConnection.define("Reservation", {
 }, {
     tableName: "Reservation",
 });
-exports.default = Reservation;
+exports.default = Reservations;

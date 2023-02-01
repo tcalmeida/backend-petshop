@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const database_1 = require("../database");
 const dbConnection = database_1.mySqlConection.getInstance();
-const Worker = dbConnection.define("Worker", {
+const Workers = dbConnection.define("Worker", {
     WorkerID: {
         type: sequelize_1.DataTypes.INTEGER,
         primaryKey: true,
@@ -31,4 +31,4 @@ const Worker = dbConnection.define("Worker", {
 }, {
     tableName: "Worker",
 });
-exports.default = Worker;
+exports.default = Workers;
