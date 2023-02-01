@@ -61,27 +61,27 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `petshop`.`Reservation` (
   `ReservationID` INT NOT NULL AUTO_INCREMENT,
-  `User_UserID` INT NOT NULL,
-  `Worker_WorkerID` INT NOT NULL,
-  `Service_ServiceID` INT NOT NULL,
+  `IDUser` INT NOT NULL,
+  `IDWorker` INT NOT NULL,
+  `IDService` INT NOT NULL,
   `CreatedAt` DATE NULL,
   `UpdatetAt` DATE NULL,
-  PRIMARY KEY (`ReservationID`, `User_UserID`, `Worker_WorkerID`, `Service_ServiceID`),
-  INDEX `fk_Reservation_User_idx` (`User_UserID` ASC) VISIBLE,
-  INDEX `fk_Reservation_Worker1_idx` (`Worker_WorkerID` ASC) VISIBLE,
-  INDEX `fk_Reservation_Service1_idx` (`Service_ServiceID` ASC) VISIBLE,
+  PRIMARY KEY (`ReservationID`, `IDUser`, `IDWorker`, `IDService`),
+  INDEX `fk_Reservation_User_idx` (`IDUser` ASC) VISIBLE,
+  INDEX `fk_Reservation_Worker1_idx` (`IDWorker` ASC) VISIBLE,
+  INDEX `fk_Reservation_Service1_idx` (`IDService` ASC) VISIBLE,
   CONSTRAINT `fk_Reservation_User`
-    FOREIGN KEY (`User_UserID`)
+    FOREIGN KEY (`IDUser`)
     REFERENCES `petshop`.`User` (`UserID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Reservation_Worker1`
-    FOREIGN KEY (`Worker_WorkerID`)
+    FOREIGN KEY (`IDWorker`)
     REFERENCES `petshop`.`Worker` (`WorkerID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Reservation_Service1`
-    FOREIGN KEY (`Service_ServiceID`)
+    FOREIGN KEY (`IDService`)
     REFERENCES `petshop`.`Service` (`ServiceID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

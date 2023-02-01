@@ -3,7 +3,7 @@ import { mySqlConection } from "../database";
 
 const dbConnection = mySqlConection.getInstance();
 
-const User = dbConnection.define(
+const Users = dbConnection.define(
   "User",
   {
     UserID: {
@@ -39,4 +39,4 @@ const User = dbConnection.define(
   }
 );
 
-export default User;
+export default Users;

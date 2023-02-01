@@ -6,7 +6,7 @@ import Service from "./Services";
 
 const dbConnection = mySqlConection.getInstance();
 
-const Reservation = dbConnection.define(
+const Reservations = dbConnection.define(
     "Reservation",
     {
       ReservationID: {
@@ -15,26 +15,29 @@ const Reservation = dbConnection.define(
         autoIncrement: true,
         allowNull: false,
       },
-      User_UserID: {
+      IDUser: {
         type: DataTypes.INTEGER,
         references: {
           model: User,
           key: "UserID",
         },
+        allowNull: false,
       },
-      Worker_WorkerID: {
+      IDWorker: {
         type: DataTypes.INTEGER,
         references: {
           model: Worker,
           key: "WorkerID",
         },
+        allowNull: false,
       },
-      Service_ServiceID: {
+      IDService: {
         type: DataTypes.INTEGER,
         references: {
           model: Service,
           key: "ServiceID",
         },
+        allowNull: false,
       },
       CreatedAt: {
         type: DataTypes.DATE,
@@ -48,4 +51,4 @@ const Reservation = dbConnection.define(
     }
   );
   
-  export default Reservation;
+  export default Reservations;

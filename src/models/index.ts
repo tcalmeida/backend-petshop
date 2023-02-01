@@ -1,15 +1,15 @@
-import User from "./Users";
-import Worker from "./Workers";
-import Service from "./Services";
-import Reservation from "./Reservations";
+import Users from "./Users";
+import Workers from "./Workers";
+import Services from "./Services";
+import Reservations from "./Reservations";
 
-User.hasMany(Reservation, { foreignKey: "UserID" });
-Reservation.belongsTo(User, { foreignKey: "UserID" });
+Users.hasMany(Reservations, { foreignKey: "IDUser" });
+Reservations.belongsTo(Users, { foreignKey: "UserID" });
 
-Worker.hasMany(Reservation, { foreignKey: "WorkerID" });
-Reservation.belongsTo(Worker, { foreignKey: "WorkerID" });
+Workers.hasMany(Reservations, { foreignKey: "IDWorker" });
+Reservations.belongsTo(Workers, { foreignKey: "WorkerID" });
 
-Service.hasMany(Reservation, { foreignKey: "ServiceID" });
-Reservation.belongsTo(Service, { foreignKey: "ServiceID" });
+Services.hasMany(Reservations, { foreignKey: "IDService" });
+Reservations.belongsTo(Services, { foreignKey: "ServiceID" });
 
-export { User, Worker, Service, Reservation };
+export { Users, Workers, Services, Reservations };

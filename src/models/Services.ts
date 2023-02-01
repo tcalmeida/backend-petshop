@@ -3,7 +3,7 @@ import { mySqlConection } from "../database";
 
 const dbConnection = mySqlConection.getInstance();
 
-const Service = dbConnection.define(
+const Services = dbConnection.define(
   "Service",
   {
     ServiceID: {
@@ -25,4 +25,4 @@ const Service = dbConnection.define(
   }
 );
 
-export default Service;
+export default Services;
